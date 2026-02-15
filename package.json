@@ -1,0 +1,68 @@
+{
+  "name": "react-resume-template",
+  "private": false,
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "A single-page, print-ready resume template built with React, TypeScript, Tailwind CSS v4, and Vite. Fork it, fill in your data, deploy to Vercel.",
+  "type": "module",
+  "keywords": [
+    "resume",
+    "cv",
+    "template",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "vite",
+    "vercel"
+  ],
+  "author": "Erwin Lejeune",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilyx/react-resume-template.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -b --noEmit",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "lucide-react": "^0.564.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "@eslint/js": "^9.39.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "tailwindcss": "^4.1.18",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.48.0",
+    "vite": "^7.3.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,html}": [
+      "prettier --write"
+    ]
+  }
+}
