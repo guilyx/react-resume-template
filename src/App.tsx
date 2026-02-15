@@ -53,9 +53,7 @@ export default function App() {
           <aside>
             <Skills skills={skills} />
             <EducationSection education={education} />
-            {publications.length > 0 && (
-              <Publications publications={publications} />
-            )}
+            {publications.length > 0 && <Publications publications={publications} />}
             {languages.length > 0 && <Languages languages={languages} />}
           </aside>
         </div>

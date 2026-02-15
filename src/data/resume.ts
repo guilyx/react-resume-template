@@ -91,14 +91,7 @@ export const resumeData: ResumeData = {
   skills: [
     {
       category: "Frontend",
-      items: [
-        "React",
-        "TypeScript",
-        "Next.js",
-        "Tailwind CSS",
-        "GraphQL",
-        "Storybook",
-      ],
+      items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "GraphQL", "Storybook"],
     },
     {
       category: "Backend",

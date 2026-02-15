@@ -31,10 +31,13 @@ nvm use 22
 # 4. Install dependencies
 npm install
 
-# 5. Start the dev server
+# 5. Install pre-commit hooks (requires: pip install pre-commit)
+pre-commit install --hook-type pre-commit --hook-type commit-msg
+
+# 6. Start the dev server
 npm run dev
 
-# 6. Open http://localhost:5173 and start editing src/data/resume.ts
+# 7. Open http://localhost:5173 and start editing src/data/resume.ts
 ```
 
 ## Customising Your Resume
@@ -50,19 +53,31 @@ export const resumeData: ResumeData = {
   summary: "A brief professional summary...",
   contact: {
     email: "you@example.com",
-    phone: "+1 (555) 000-0000",       // optional
+    phone: "+1 (555) 000-0000", // optional
     portfolio: "https://yoursite.dev", // optional
-    location: "City, Country",         // optional
-    github: "yourusername",            // optional
-    linkedin: "yourusername",          // optional
+    location: "City, Country", // optional
+    github: "yourusername", // optional
+    linkedin: "yourusername", // optional
   },
-  experience: [ /* ... */ ],
-  education: [ /* ... */ ],
-  skills: [ /* ... */ ],
+  experience: [
+    /* ... */
+  ],
+  education: [
+    /* ... */
+  ],
+  skills: [
+    /* ... */
+  ],
   // Optional sections -- omit or leave empty to hide:
-  projects: [ /* ... */ ],
-  publications: [ /* ... */ ],
-  languages: [ /* ... */ ],
+  projects: [
+    /* ... */
+  ],
+  publications: [
+    /* ... */
+  ],
+  languages: [
+    /* ... */
+  ],
 };
 ```
 
@@ -172,11 +187,11 @@ On first run, the CLI will walk you through linking to a Vercel project. After t
 
 If you prefer CI-driven deployments, add these secrets to your GitHub repository settings:
 
-| Secret              | Where to find it                                    |
-| ------------------- | --------------------------------------------------- |
+| Secret              | Where to find it                                               |
+| ------------------- | -------------------------------------------------------------- |
 | `VERCEL_TOKEN`      | [vercel.com/account/tokens](https://vercel.com/account/tokens) |
-| `VERCEL_ORG_ID`     | `.vercel/project.json` after running `vercel link`  |
-| `VERCEL_PROJECT_ID` | `.vercel/project.json` after running `vercel link`  |
+| `VERCEL_ORG_ID`     | `.vercel/project.json` after running `vercel link`             |
+| `VERCEL_PROJECT_ID` | `.vercel/project.json` after running `vercel link`             |
 
 Then create `.github/workflows/deploy.yml`:
 
