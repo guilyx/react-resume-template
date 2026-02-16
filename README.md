@@ -124,6 +124,18 @@ Add an entry to the `projects` array:
 }
 ```
 
+### Adding the PDF download button
+
+1. Export your resume as PDF (e.g. via `Ctrl+P` > Save as PDF).
+2. Place the file at `public/resume.pdf`.
+3. Set `pdfUrl` in `src/data/resume.ts`:
+
+```ts
+pdfUrl: "/resume.pdf",
+```
+
+A floating download button appears in the bottom-right corner. The URL is also directly shareable -- anyone visiting `https://yoursite.com/resume.pdf` downloads the PDF immediately.
+
 ### Adding a new section
 
 1. Define a type in `src/types/resume.ts` and add the field to `ResumeData`.
@@ -134,6 +146,8 @@ Add an entry to the `projects` array:
 ## Project Structure
 
 ```
+public/
+└── resume.pdf                   # Your PDF (served at /resume.pdf)
 src/
 ├── types/resume.ts              # TypeScript interfaces for all resume data
 ├── data/resume.ts               # Single source of truth for CV content
@@ -141,6 +155,7 @@ src/
 │   ├── index.ts                 # Barrel export
 │   ├── Section.tsx              # Reusable section wrapper (heading + divider)
 │   ├── Header.tsx               # Name, title, contact links
+│   ├── DownloadButton.tsx       # Floating PDF download button
 │   ├── ProfessionalSummary.tsx  # Summary / objective paragraph
 │   ├── WorkExperience.tsx       # Job entries with bullets and promotions
 │   ├── EducationSection.tsx     # Degree entries

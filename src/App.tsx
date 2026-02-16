@@ -2,6 +2,7 @@
 
 import { resumeData } from "./data/resume";
 import {
+  DownloadButton,
   Header,
   ProfessionalSummary,
   WorkExperience,
@@ -34,30 +35,34 @@ export default function App() {
     publications = [],
     projects = [],
     languages = [],
+    pdfUrl,
   } = resumeData;
 
   return (
-    <div className="page">
-      <div className="px-5 py-8 sm:px-10 sm:py-10 md:px-14 md:py-12">
-        <Header name={name} title={title} contact={contact} />
+    <>
+      {pdfUrl && <DownloadButton pdfUrl={pdfUrl} />}
+      <div className="page">
+        <div className="px-5 py-8 sm:px-10 sm:py-10 md:px-14 md:py-12">
+          <Header name={name} title={title} contact={contact} />
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-x-10 gap-y-2">
-          {/* ---- Main column ---- */}
-          <div>
-            <ProfessionalSummary summary={summary} />
-            <WorkExperience experience={experience} />
-            {projects.length > 0 && <Projects projects={projects} />}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-x-10 gap-y-2">
+            {/* ---- Main column ---- */}
+            <div>
+              <ProfessionalSummary summary={summary} />
+              <WorkExperience experience={experience} />
+              {projects.length > 0 && <Projects projects={projects} />}
+            </div>
+
+            {/* ---- Sidebar ---- */}
+            <aside>
+              <Skills skills={skills} />
+              <EducationSection education={education} />
+              {publications.length > 0 && <Publications publications={publications} />}
+              {languages.length > 0 && <Languages languages={languages} />}
+            </aside>
           </div>
-
-          {/* ---- Sidebar ---- */}
-          <aside>
-            <Skills skills={skills} />
-            <EducationSection education={education} />
-            {publications.length > 0 && <Publications publications={publications} />}
-            {languages.length > 0 && <Languages languages={languages} />}
-          </aside>
         </div>
       </div>
-    </div>
+    </>
   );
 }
