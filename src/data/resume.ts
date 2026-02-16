@@ -138,8 +138,4 @@ export const resumeData: ResumeData = {
     { name: "Spanish", proficiency: "Professional" },
     { name: "French", proficiency: "Conversational" },
   ],
-
-  // Place your PDF in public/resume.pdf and uncomment the line below.
-  // The URL is directly shareable: https://yoursite.com/resume.pdf
-  pdfUrl: "/resume.pdf",
 };

@@ -124,17 +124,17 @@ Add an entry to the `projects` array:
 }
 ```
 
-### Adding the PDF download button
+### PDF download
 
-1. Export your resume as PDF (e.g. via `Ctrl+P` > Save as PDF).
-2. Place the file at `public/resume.pdf`.
-3. Set `pdfUrl` in `src/data/resume.ts`:
+A floating **Download PDF** button is always visible in the bottom-right corner. Clicking it generates a PDF from the rendered page using `html2canvas` + `jsPDF` and triggers a browser download. The filename is derived from the `name` field (e.g. `jane-smith-resume.pdf`).
 
-```ts
-pdfUrl: "/resume.pdf",
+For external sharing, append `?download` to your deployed URL:
+
+```
+https://yoursite.com/?download
 ```
 
-A floating download button appears in the bottom-right corner. The URL is also directly shareable -- anyone visiting `https://yoursite.com/resume.pdf` downloads the PDF immediately.
+Anyone visiting that link will see the resume render and then receive the PDF automatically.
 
 ### Adding a new section
 
@@ -146,16 +146,15 @@ A floating download button appears in the bottom-right corner. The URL is also d
 ## Project Structure
 
 ```
-public/
-└── resume.pdf                   # Your PDF (served at /resume.pdf)
 src/
 ├── types/resume.ts              # TypeScript interfaces for all resume data
 ├── data/resume.ts               # Single source of truth for CV content
+├── lib/generatePdf.ts           # html2canvas + jsPDF PDF generation utility
 ├── components/
 │   ├── index.ts                 # Barrel export
 │   ├── Section.tsx              # Reusable section wrapper (heading + divider)
 │   ├── Header.tsx               # Name, title, contact links
-│   ├── DownloadButton.tsx       # Floating PDF download button
+│   ├── DownloadButton.tsx       # Floating PDF download button (generates on click)
 │   ├── ProfessionalSummary.tsx  # Summary / objective paragraph
 │   ├── WorkExperience.tsx       # Job entries with bullets and promotions
 │   ├── EducationSection.tsx     # Degree entries

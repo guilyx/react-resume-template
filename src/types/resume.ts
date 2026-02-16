@@ -75,11 +75,4 @@ export interface ResumeData {
   publications?: Publication[];
   projects?: Project[];
   languages?: Language[];
-  /**
-   * Path or URL to a PDF version of the resume.
-   * When set, a floating download button appears and the URL is
-   * directly shareable (e.g. "https://yoursite.com/resume.pdf").
-   * Place the file in `public/` so Vite serves it at the root.
-   */
-  pdfUrl?: string;
 }
